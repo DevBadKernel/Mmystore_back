@@ -40,3 +40,23 @@ exports.addProduct = (request,response)=>{
         throw error.message;
     })
 }
+
+exports.deleteProduct = (request,response)=>{
+    console.log('receive delete Product request');
+
+    productModel.deleteProduct(request.params.id).then((product,error)=>{
+
+        if(error){
+            throw error.message;
+        }
+
+        if(product){
+            return response.status(200).send({info:true});
+        }else{
+            console.error('error on deleteProduct');
+            return response.status(500);
+        }
+    }).catch(error=>{
+        throw error.message;
+    })
+}

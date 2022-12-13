@@ -72,3 +72,4 @@ exports.deleteProduct = (id)=>{
         throw error.message;
     })
 }
+
