@@ -1,5 +1,7 @@
 'use strict'
 
+const { putProduct } = require('../controllers/product.controller');
+
 const mongoose = require('../../common/services/mongoose.service').mongoose;
 const productsSchema = new mongoose.Schema({
 
@@ -73,3 +75,6 @@ exports.deleteProduct = (id)=>{
     })
 }
 
+exports.putProduct = (info)=>{
+    
+} 
