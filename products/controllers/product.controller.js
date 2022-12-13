@@ -42,7 +42,7 @@ exports.addProduct = (request,response)=>{
 }
 
 exports.deleteProduct = (request,response)=>{
-    console.log('receive delete Product request');
+    console.log('receive deleteProduct request');
 
     productModel.deleteProduct(request.params.id).then((product,error)=>{
 
@@ -54,6 +54,26 @@ exports.deleteProduct = (request,response)=>{
             return response.status(200).send({info:true});
         }else{
             console.error('error on deleteProduct');
+            return response.status(500);
+        }
+    }).catch(error=>{
+        throw error.message;
+    })
+}
+
+exports.putProduct = (request,response)=>{
+    console.log('receive putProduct request');
+
+    productModel.putProduct(request.params.id).then((product,error)=>{
+
+        if(error){
+            throw error.message;
+        }
+
+        if(product){
+            return response.status(200).send({info:true});
+        }else{
+            console.error('error on putProduct');
             return response.status(500);
         }
     }).catch(error=>{
