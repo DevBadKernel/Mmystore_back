@@ -48,5 +48,27 @@ exports.addProduct = (info)=>{
     }catch(error){
         throw error.message
     }
-    
+
+}
+
+exports.deleteProduct = (id)=>{
+
+    return new Promise((resolve,reject)=>{
+
+        products.deleteOne({_id:id}).exec((error,result)=>{
+
+            if(error){
+                reject(error.message);
+                throw error.message;
+            }
+            if(result.deletedCount){
+                resolve(true);
+            }else{
+                resolve(false);
+            }
+        })
+
+    }).catch(error=>{
+        throw error.message;
+    })
 }
