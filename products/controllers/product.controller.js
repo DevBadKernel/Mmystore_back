@@ -4,6 +4,7 @@ const productModel = require('../models/product.model');
 
 exports.getALLProducts = (request,response)=>{
     console.log('received getALLProducts request');
+    
     productModel.getProducts().then((products,error)=>{
         
         if(error){
@@ -23,6 +24,7 @@ exports.getALLProducts = (request,response)=>{
 
 exports.addProduct = (request,response)=>{
     console.log('received addProduct request');
+    
     productModel.addProduct(request.body.info).then((product,error)=>{
 
         if(error){
@@ -56,6 +58,7 @@ exports.deleteProduct = (request,response)=>{
             console.error('error on deleteProduct');
             return response.status(500);
         }
+
     }).catch(error=>{
         throw error.message;
     })
@@ -76,6 +79,7 @@ exports.deleteProduct = (request,response)=>{
 //             console.error('error on putProduct');
 //             return response.status(500);
 //         }
+        
 //     }).catch(error=>{
 //         throw error.message;
 //     })

@@ -10,6 +10,6 @@ exports.ProductRoutes = function(app){
 
     app.delete('/api/delete_product/:id', ProductController.deleteProduct);
 
-    // app.put('/api/put_product', ProductController.putProduct);
+    // app.put('/api/put_product/:id', ProductController.putProduct);
     
 }

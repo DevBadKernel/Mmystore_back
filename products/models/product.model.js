@@ -20,7 +20,7 @@ const productsSchema = new mongoose.Schema({
 productsSchema.set('toJSON', {virtuals:false});
 const products = mongoose.model('products', productsSchema, 'products');
 
-exports.getProducts = ()=>{
+exports.getProducts = () =>{
 
     return new Promise((resolve,reject)=>{
 
@@ -75,6 +75,23 @@ exports.deleteProduct = (id)=>{
     })
 }
 
-// exports.putProduct = (info)=>{
-    
+// exports.putProduct = (id)=>{
+//     return new Promise((resolve,reject)=>{
+
+//         products.update({_id:id}).exec((error,result)=>{
+
+//             if(error){
+//                 reject(error.message);
+//                 throw error.message;
+//             }
+//             if(result.deletedCount){
+//                 resolve(true);
+//             }else{
+//                 resolve(false);
+//             }
+//         })
+
+//     }).catch(error=>{
+//         throw error.message;
+//     })
 // } 
