@@ -8,8 +8,8 @@ exports.ProductRoutes = function(app){
 
     app.post('/api/add_product', ProductController.addProduct);
 
-    app.delete('/api/delete_product', ProductController.deleteProduct);
+    app.delete('/api/delete_product/:id', ProductController.deleteProduct);
 
-    app.put('/api/put_product', ProductController.putProduct);
+    // app.put('/api/put_product', ProductController.putProduct);
     
 }

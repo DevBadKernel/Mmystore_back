@@ -75,6 +75,6 @@ exports.deleteProduct = (id)=>{
     })
 }
 
-exports.putProduct = (info)=>{
+// exports.putProduct = (info)=>{
     
-} 
+// } 

@@ -10,7 +10,7 @@ const options = {
 
 const connectWithRetry = ()=>{
         console.log('Mongo connection with retry');
-        mongoose.connect('mongodb://JordiMongodb:mystoredatabase@127.0.0.1:27017/mystore', options).then(()=>{
+        mongoose.connect('mongodb://toniMongodb:mystoredb@127.0.0.1:27017/mystore', options).then(()=>{
             console.log('Mongo is connected');
 
         }).catch(error=>{

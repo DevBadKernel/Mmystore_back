@@ -4,7 +4,7 @@ const productModel = require('../models/product.model');
 
 exports.getALLProducts = (request,response)=>{
     console.log('received getALLProducts request');
-    productModel.getALLProducts().then((products,error)=>{
+    productModel.getProducts().then((products,error)=>{
         
         if(error){
             throw error.message;
@@ -61,22 +61,22 @@ exports.deleteProduct = (request,response)=>{
     })
 }
 
-exports.putProduct = (request,response)=>{
-    console.log('receive putProduct request');
+// exports.putProduct = (request,response)=>{
+//     console.log('receive putProduct request');
 
-    productModel.putProduct(request.params.id).then((product,error)=>{
+//     productModel.putProduct(request.params.id).then((product,error)=>{
 
-        if(error){
-            throw error.message;
-        }
+//         if(error){
+//             throw error.message;
+//         }
 
-        if(product){
-            return response.status(200).send({info:true});
-        }else{
-            console.error('error on putProduct');
-            return response.status(500);
-        }
-    }).catch(error=>{
-        throw error.message;
-    })
-}
+//         if(product){
+//             return response.status(200).send({info:true});
+//         }else{
+//             console.error('error on putProduct');
+//             return response.status(500);
+//         }
+//     }).catch(error=>{
+//         throw error.message;
+//     })
+// }
