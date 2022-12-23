@@ -13,7 +13,7 @@ app.use(express.urlencoded({extended:false}));
 
 const Products = require('./products/routes/product.routes');
 
-Products.productRoutes(app);
+Products.ProductRoutes(app);
 
 app.listen(3000,'localhost', ()=>{
     console.log('server listening on port %s , 3000');
