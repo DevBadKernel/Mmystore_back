@@ -10,6 +10,8 @@ exports.ProductRoutes = function(app){
 
     app.delete('/api/delete_product/:id', ProductController.deleteProduct);
 
-    // app.put('/api/put_product/:id', ProductController.putProduct);
+    app.put('/api/update_product/', ProductController.editProduct);
+
+    //importante que las urls coincidan en front y en back
     
 }

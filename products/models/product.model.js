@@ -75,23 +75,28 @@ exports.deleteProduct = (id)=>{
     })
 }
 
-// exports.putProduct = (id)=>{
-//     return new Promise((resolve,reject)=>{
+exports.editProduct = (data)=>{
+    // a "data se le asigna lo que hay en "body" desde product.controller
+    return new Promise((resolve,reject)=>{
 
-//         products.update({_id:id}).exec((error,result)=>{
+        products.updateOne({_id:data._id},{$set:data}).exec((error,result)=>{
+            //actualiza el objeto en la base de datos
 
-//             if(error){
-//                 reject(error.message);
-//                 throw error.message;
-//             }
-//             if(result.deletedCount){
-//                 resolve(true);
-//             }else{
-//                 resolve(false);
-//             }
-//         })
+            if(error){
+                reject(error.message);
+                throw error.message;
+            }
+            console.log('result back: ',result);
 
-//     }).catch(error=>{
-//         throw error.message;
-//     })
-// } 
+            if(result.modifiedCount){
+                //"modifiedCount" no devuelve el número de documentos modificados, en este caso 0 (false) o 1 (true) pq sólo se edita 1 documento
+                resolve(true);
+            }else{
+                resolve(false);
+            }
+        })
+
+    }).catch(error=>{
+        throw error.message;
+    })
+} 
